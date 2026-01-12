@@ -23,11 +23,11 @@ export const App = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar user = {user} setUser = {setUser} />
   <Routes>
     <Route path = "/" element = {<ProtectedRoute user = {user} > <Home/> </ProtectedRoute>}> </Route>
     <Route path = "/login" element = {<Login/>}> </Route>
-    <Route path = "/signup" element = {  <SignUp/>}> </Route>
+    <Route path = "/signup" element = {  <SignUp setUser = {setUser}/>}> </Route>
     <Route path = "/cart" element = {<ProtectedRoute user={user}> <Cart/> </ProtectedRoute>}> </Route>
   </Routes>
     </>

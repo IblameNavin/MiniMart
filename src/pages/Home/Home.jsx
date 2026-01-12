@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ProductCards } from '../../data/products'
 import styles from "./Home.module.css"
+import { useNavigate } from 'react-router-dom'
 
 export const Home = () => {
+
+   const navigate = useNavigate()
+
+   // Refreshing home wont erase the data
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    if(currentUser) return navigate("/")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) 
+  
   return (
     <>
     
