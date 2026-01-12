@@ -1,0 +1,49 @@
+.outerDiv{
+    min-height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.ul{
+    display: flex;
+    gap: 25px;    
+    list-style-type: none;
+}
+
+.a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.a::before{
+    content: "";
+    position: absolute;
+    bottom : -7px;
+    left : 50%;
+    height: 2px;
+    width: 0;
+    background-color: black; 
+    transform: translateX(-50%);
+    transition: width 0.4s ease-in-out;
+
+}
+
+.a:hover {
+  color: #3498db;
+}
+
+.a:hover::before {
+  width: 100%;
+}
+
+
+
+.h2{
+    font-size: 34px;
+}
+
