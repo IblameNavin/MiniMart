@@ -19,7 +19,7 @@ else{
     updatedCart = [...cart,{...product, quantity : 1}]
 }
 localStorage.setItem(cartKey, JSON.stringify(updatedCart))
-alert("Item Added To Cart")
+alert("Item added to cart")
 }
 
 // Grab all the carts from localStorage
