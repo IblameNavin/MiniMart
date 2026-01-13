@@ -20,21 +20,21 @@ export const ProductCards = [
         name: "Blue T-Shirt",
         category : "Topwear",
         image : Topwear1,
-        price : "120$"
+        price : 120
     },
      {
         id : 2,
         name: "White T-Shirt",
         category : "Topwear",
         image : Topwear2,
-        price : "220$"
+        price : 220
     },
      {
         id : 3,
         name: "Crimson T-Shirt",
         category : "Topwear",
         image : Topwear3,
-        price : "320$"
+        price : 320
     },
      {
         id : 4,
@@ -48,55 +48,55 @@ export const ProductCards = [
         name: "Black Pants",
         category : "Bottomwear",
         image : Bottomwear1,
-        price : "140$"
+        price : 140
     },
      {
         id : 6,
         name: "Trousers",
         category : "Bottomwear",
         image :Bottomwear2,
-        price : "110$"
+        price : 110
     },
      {
         id : 7,
         name: "Crimson Pants",
         category : "Bottomwear",
         image : Bottomwear3,
-        price : "20$"
+        price : 20
     },
      {
         id : 8,
         name: "Jeans Pants",
         category : "Bottomwear",
         image : Bottomwear4,
-        price : "50$"
+        price : 50
     },
      {
         id : 9,
         name: "Trekking Shoes",
         category : "Footwear",
         image : Footwear1,
-        price : "180$"
+        price : 180
     },
      {
         id : 10,
         name: "Ladies Sheos",
         category : "Footwear",
         image : Footwear2,
-        price : "290$"
+        price : 290   
     },
      {
         id : 11,
         name: "Hiking Shoes",
         category : "Footwear",
         image : Footwear3,
-        price : "260$"
+        price : 260
     },
      {
         id : 12,
         name: "Sports Shoes",
         category : "Footwear",
         image : Footwear4,
-        price : "320$"
+        price : 320
     },
 ]

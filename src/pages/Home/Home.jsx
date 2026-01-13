@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ProductCards } from '../../data/products'
 import styles from "./Home.module.css"
-import { useNavigate } from 'react-router-dom'
+import { addToCart } from "../../utils/CardUtils"
 
-export const Home = () => {
+export const Home = ({user}) => {
 
-   const navigate = useNavigate()
 
-   // Refreshing home wont erase the data
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-    if(currentUser) return navigate("/")
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) 
+
   
   return (
     <>
@@ -29,7 +23,10 @@ export const Home = () => {
             </div>
             <div className= {styles.productPrice}>
                <span className={styles.name}>{product.name}</span>
-            <span className = {styles.price}>{product.price}</span>
+            <span className = {styles.price}>{product.price}$</span>
+            </div>
+            <div className={styles.cartWrapper}>
+            <button className={styles.cartBtn} onClick={()=>addToCart(product, user)}>Add to Cart</button>
             </div>
              </>
         </div>

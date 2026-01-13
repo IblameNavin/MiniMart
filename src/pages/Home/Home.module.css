@@ -51,3 +51,21 @@
   font-size: 19px;
   font-weight: 800;
 }
+
+.cartBtn{
+  padding: 10px 18px;
+  background-color: black;
+  color: white;
+  transition: background 0.5s ease-in-out;
+}
+
+.cartBtn:hover{
+  background-color: white;
+  color: black;
+  transition: background 0.3s ease-in-out;
+}
+
+
+.cartWrapper{
+    text-align: center;
+}

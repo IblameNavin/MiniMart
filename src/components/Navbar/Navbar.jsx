@@ -24,7 +24,8 @@ const Navbar = ({user, setUser}) => {
                 <>
                 <li><Link className = {styles.a}  to = "/" >Home</Link></li>
                 <li><Link className = {styles.a}  to = "/cart">Cart</Link></li>
-                <button onClick={handleLogout}>Logout</button>
+                <h3>Hi, {user.name}</h3>
+                <button className={styles.logout} onClick={handleLogout}>Logout</button>
                 </>
                 :
                 <>

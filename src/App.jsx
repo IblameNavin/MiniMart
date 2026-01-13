@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./App.css"
 import { Routes, Route } from "react-router-dom"
 import {Home} from "./pages/Home/Home.jsx"
@@ -12,21 +12,19 @@ import Navbar from './components/Navbar/Navbar'
 
 export const App = () => {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(()=>{
+     return JSON.parse(localStorage.getItem("currentUser")) || null
+  })
    
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"))
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if(storedUser) return setUser(storedUser)
-  }, [])
+  
   
 
   return (
     <>
     <Navbar user = {user} setUser = {setUser} />
   <Routes>
-    <Route path = "/" element = {<ProtectedRoute user = {user} > <Home/> </ProtectedRoute>}> </Route>
-    <Route path = "/login" element = {<Login/>}> </Route>
+    <Route path = "/" element = {<ProtectedRoute user = {user} > <Home user = {user} /> </ProtectedRoute>}> </Route>
+    <Route path = "/login" element = {<Login setUser = {setUser} />}> </Route>
     <Route path = "/signup" element = {  <SignUp setUser = {setUser}/>}> </Route>
     <Route path = "/cart" element = {<ProtectedRoute user={user}> <Cart/> </ProtectedRoute>}> </Route>
   </Routes>
