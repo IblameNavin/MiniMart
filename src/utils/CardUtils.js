@@ -1,4 +1,4 @@
-const addToCart = (product, user) =>{
+export const addToCart = (product, user) =>{
     if(!user) return
 
     const cartKey = `cart_${user.email}`
@@ -14,11 +14,12 @@ const addToCart = (product, user) =>{
       updatedCart = cart.map((item)=>
      item.id === product.id ? {...item, quantity : item.quantity + 1 } : item
     )
-    }
-    else{
-        updatedCart = [...cart,{...product, quantity : 1}]
-    }
-    localStorage.setItem(cartKey, JSON.stringify(updatedCart))
+}
+else{
+    updatedCart = [...cart,{...product, quantity : 1}]
+}
+localStorage.setItem(cartKey, JSON.stringify(updatedCart))
+alert("Item Added To Cart")
 }
 
 // Grab all the carts from localStorage

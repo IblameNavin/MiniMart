@@ -26,7 +26,7 @@ export const App = () => {
     <Route path = "/" element = {<ProtectedRoute user = {user} > <Home user = {user} /> </ProtectedRoute>}> </Route>
     <Route path = "/login" element = {<Login setUser = {setUser} />}> </Route>
     <Route path = "/signup" element = {  <SignUp setUser = {setUser}/>}> </Route>
-    <Route path = "/cart" element = {<ProtectedRoute user={user}> <Cart/> </ProtectedRoute>}> </Route>
+    <Route path = "/cart" element = {<ProtectedRoute user={user}> <Cart user = {user} /> </ProtectedRoute>}> </Route>
   </Routes>
     </>
   )
