@@ -1,12 +1,25 @@
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import styles from "./Cart.module.css"
+import { AppContext } from '../../context/AppContext'
 
 export const Cart = ({user}) => {
+
+  if(!user) return null
+
+  const { searchInput } = useContext(AppContext)
+
   
   const cartkey = `cart_${user.email}`
   const cart = JSON.parse(localStorage.getItem(cartkey))
-
+  
   const [cartItems, setCartItems] = useState(cart || [])
+  
+
+
+
+  const filteredCartItems = cartItems.filter((item)=>{
+    return item.name.toLowerCase().includes(searchInput.toLowerCase())
+  })
 
   const handleRemoveItem = (id)=>{
     const updatedCart = cartItems.filter((item)=> item.id !== id )
@@ -24,7 +37,7 @@ export const Cart = ({user}) => {
 
   const handleDecreaseItem = (id)=>{
     const updatedCart = cartItems.map((item)=>
-     item.id === id ? {...item, quantity : item.quantity - 1} : item
+    item.id === id ? {...item, quantity : item.quantity - 1} : item
     )
     setCartItems(updatedCart)
     localStorage.setItem(cartkey, JSON.stringify(updatedCart))
@@ -36,7 +49,7 @@ export const Cart = ({user}) => {
                 {cartItems.length === 0 ? 
                 <p>Cart Is Empty</p>
                 :
-                cartItems.map((product)=>
+                filteredCartItems.map((product)=>
                   <div className= {styles.card} key = {product.id}>  
                 <div className= {styles.imgWrapper}>
                     <img src= {product.image} alt="" />
