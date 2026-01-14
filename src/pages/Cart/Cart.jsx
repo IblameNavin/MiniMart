@@ -1,45 +1,67 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Cart.module.css";
+import {useState} from 'react'
+import styles from "./Cart.module.css"
 
-export const Cart = ({ user }) => {
-  // Grab cart from localStorage based on user email
-  const cartKey = `cart_${user.email}`;
-  const storedCart = JSON.parse(localStorage.getItem(cartKey)) || [];
+export const Cart = ({user}) => {
+  
+  const cartkey = `cart_${user.email}`
+  const cart = JSON.parse(localStorage.getItem(cartkey))
 
-  // Set state so UI can react to changes
-  const [cartItems, setCartItems] = useState(storedCart);
+  const [cartItems, setCartItems] = useState(cart || [])
 
-  // Optional: keep cartItems in sync if localStorage changes elsewhere
-  useEffect(() => {
-    const updatedCart = JSON.parse(localStorage.getItem(cartKey)) || [];
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setCartItems(updatedCart);
-  }, [cartKey]);
+  const handleRemoveItem = (id)=>{
+    const updatedCart = cartItems.filter((item)=> item.id !== id )
+    setCartItems(updatedCart)
+    localStorage.setItem(cartkey, JSON.stringify(updatedCart))
+  }
 
-  // Placeholder JSX — we’ll fill this later with mapping over cartItems
+  const handleAddItem = (id)=>{
+    const updatedCart = cartItems.map((item)=>
+    item.id === id ? {...item, quantity : item.quantity + 1} : item
+    )
+    setCartItems(updatedCart)
+    localStorage.setItem(cartkey, JSON.stringify(updatedCart))
+  }
+
+  const handleDecreaseItem = (id)=>{
+    const updatedCart = cartItems.map((item)=>
+     item.id === id ? {...item, quantity : item.quantity - 1} : item
+    )
+    setCartItems(updatedCart)
+    localStorage.setItem(cartkey, JSON.stringify(updatedCart))
+  }
+
   return (
-    <div className={styles.outerDiv}>
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        cartItems.map((item) => (
-          <div className={styles.card} key={item.id}>
-            <div className={styles.imgWrapper}>
-              <img src={item.image} alt={item.name} />
+    <>
+     <div className= {styles.outerDiv} >
+                {cartItems.length === 0 ? 
+                <p>Cart Is Empty</p>
+                :
+                cartItems.map((product)=>
+                  <div className= {styles.card} key = {product.id}>  
+                <div className= {styles.imgWrapper}>
+                    <img src= {product.image} alt="" />
+                </div>
+                <div className= {styles.categoryWrapper}>
+                    <span className= {styles.category}>{product.category}</span>
+                </div>
+                <div className= {styles.productPrice}>
+                   <span className={styles.name}>{product.name}</span>
+                <span className = {styles.price}>{product.price}$</span>
+                <span>Quantity: {product.quantity}</span>
+                </div>
+
+                <div className={styles.btnWrapper}>
+                  <button className={styles.decrease} onClick={()=>product.quantity > 1 && handleDecreaseItem(product.id)}>-</button>
+                  <button className={styles.remove} onClick={()=>handleRemoveItem(product.id)}>x</button>
+                  <button className={styles.add} onClick={()=>handleAddItem(product.id)}>+</button>
+                </div>
+               
             </div>
-            <div className={styles.categoryWrapper}>
-              <span className={styles.category}>{item.category}</span>
-            </div>
-            <div className={styles.productPrice}>
-              <span className={styles.name}>{item.name}</span>
-              <span className={styles.price}>{item.price}$</span>
-            </div>
-            <div className={styles.cartWrapper}>
-              <span>Quantity: {item.quantity}</span>
-            </div>
-          </div>
-        ))
-      )}
-    </div>
-  );
-};
+              )
+                }
+           
+                
+        </div>
+    </>
+  )
+}

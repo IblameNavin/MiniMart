@@ -6,7 +6,6 @@ import { Login } from "./pages/Login/Login.jsx"
 import { SignUp } from "./pages/Signup/SignUp.jsx"
 import { Cart } from "./pages/Cart/Cart.jsx"
 import {ProtectedRoute} from "./auth/ProtectedRoute.jsx"
-import {PublicRoute} from "./auth/PublicRoute.jsx"
 import Navbar from './components/Navbar/Navbar'
 
 

@@ -75,3 +75,49 @@
     font-weight: 800;
     font-size: 19px;
 }
+
+.btnWrapper{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btnWrapper button{
+  padding: 10px 18px;
+}
+
+.decrease{
+  background-color: red;
+  color : white;
+  border:none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.decrease:hover{
+  background-color: rgba(212, 49, 49, 0.664);
+}
+
+.remove{
+   background-color: black;
+   color : white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.remove:hover{
+  background-color: rgba(66, 56, 56, 0.651);
+}
+
+.add{
+   background-color: green;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+}
+
+.add:hover{
+  background-color: rgba(0, 128, 0, 0.507);
+}
