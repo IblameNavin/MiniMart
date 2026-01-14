@@ -61,3 +61,9 @@
     color: black;
     transition : background 0.3s  ease-in-out
 }
+
+.input{
+    padding : 10px 23px;
+    font-size: 14px;
+    border-radius: 3px;
+}

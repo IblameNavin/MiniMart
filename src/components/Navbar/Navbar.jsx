@@ -1,6 +1,7 @@
-import React from 'react'
 import styles from "./Navbar.module.css"
 import { Link, useNavigate } from "react-router-dom"
+import { AppContext } from '../../context/AppContext';
+import { useContext } from "react";
 
 
 const Navbar = ({user, setUser}) => {
@@ -12,6 +13,10 @@ const Navbar = ({user, setUser}) => {
         setUser(null)
         navigate("/login")
     }
+      
+    const { searchInput, setSearchInput } = useContext(AppContext)
+  
+
   return (
     <>
     <div className = {styles.outerDiv} >
@@ -24,6 +29,7 @@ const Navbar = ({user, setUser}) => {
                 <>
                 <li><Link className = {styles.a}  to = "/" >Home</Link></li>
                 <li><Link className = {styles.a}  to = "/cart">Cart</Link></li>
+                <input type="text" className={styles.input} placeholder='Search for products' value={searchInput} onChange={(e)=>setSearchInput(e.target.value)}/>
                 <h3>Hi, {user.name}</h3>
                 <button className={styles.logout} onClick={handleLogout}>Logout</button>
                 </>

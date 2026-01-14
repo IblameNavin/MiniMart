@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ProductCards } from '../../data/products'
 import styles from "./Home.module.css"
 import { addToCart } from "../../utils/CardUtils"
+import { AppContext } from '../../context/AppContext'
 
 export const Home = ({user}) => {
+     
+  const { searchInput, setSearchInput }  = useContext(AppContext)
+
+ useEffect(() => {
+    setSearchInput("")
+  }, [setSearchInput]) 
+
+  const filterProducts = ProductCards.filter((item)=>
+     item.name.toLowerCase().includes(searchInput.toLowerCase()),
+  )
 
 
-
-  
   return (
     <>
     
     <div className= {styles.outerDiv} >
-            {ProductCards.map((product)=>
+            {filterProducts.map((product)=>
         <div className= {styles.card} key = {product.id}>  
              <>
             <div className= {styles.imgWrapper}>
