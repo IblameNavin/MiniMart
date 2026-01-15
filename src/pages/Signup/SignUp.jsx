@@ -41,7 +41,7 @@ export const SignUp = ({setUser}) => {
              <h2 className={styles.h2}>Signup</h2>
              <label htmlFor="name" name = "name">Name</label>
              <input className={styles.input} type="text" placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value)} />
-                          <label htmlFor="email" name = "email">Email</label>
+                          <label htmlFor="email" className= {styles.nameLabel} name = "email">Email</label>
              <input className={styles.input} type="email" placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                           <label htmlFor="password" name = "password">Password</label>
              <input className={styles.input} type="password" placeholder="Enter your password" value={password} onChange={(e)=>setPassword(e.target.value)} />
