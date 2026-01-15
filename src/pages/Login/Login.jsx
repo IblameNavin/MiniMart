@@ -34,7 +34,9 @@ export const Login = ({setUser}) => {
         {/* <div className={styles.container}> */}
           <form onSubmit={handleSubmit} className={styles.container}>
              <h2 className={styles.h2}>Login</h2>
+             <label htmlFor="email" name = "email">Email</label>
              <input className={styles.input} type="email" label = "email" placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+             <label htmlFor="password" name = "password">Password</label>
              <input className={styles.input} type="password" label = "password" placeholder="Enter your password" value={password} onChange={(e)=>setPassword(e.target.value)} />
              <div className={styles.btnWrapper}>
              <button className={styles.button}>Login</button>
