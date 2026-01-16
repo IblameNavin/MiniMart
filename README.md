@@ -1,17 +1,30 @@
-# React + Vite
+ 
+                                   WHAT I LEARNED IN THIS PROJECT :
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. useContext  
+   - Used React Context API for the first time to manage global state
+   - Shared search state between Navbar, Home, and Cart without prop drilling
 
-Currently, two official plugins are available:
+2. Project Structure  
+   - Organized components, utilities, data, and context into a clear folder structure
+   - Improved code readability and maintainability
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. localStorage  
+   - Implemented user-based cart persistence using localStorage
+   - Managed separate carts for different users
+   - Synced React state with localStorage updates
 
-## React Compiler
+4. State & Logic Handling  
+   - Built add, remove, increase, and decrease cart item logic
+   - Worked with array methods like map and filter in real scenarios
+   - Improved understanding of React state updates
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
+                        
+                                            Tech Used :
+                                            
+1. React (Vite)
+2. CSS Modules
+3. React Router
+4. Browser localStorage
+                                        
